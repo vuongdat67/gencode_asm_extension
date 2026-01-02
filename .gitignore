@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+fg-codebert/
+model/
+.github/
+*.csv
+*.ps1
+scan-output.txt
+all-code1.txt
+*.tsv
