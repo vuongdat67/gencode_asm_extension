@@ -85,31 +85,45 @@ code --install-extension asm-suggest-0.0.2.vsix
 
 ## Resources model
 
-pretrain or full: https://www.kaggle.com/code/datvutyn/notebook2fd53223e8 (nhưng timeout 12h) - đã có dapt, tapt, assembly
-python: https://www.kaggle.com/code/thnhtvng/final
-assembly: lấy từ pretrain, checkpoint để làm tiếp - https://www.kaggle.com/code/vuongdat67/assemblyc
+- pretrain or full: https://www.kaggle.com/code/datvutyn/notebook2fd53223e8 (nhưng timeout 12h) - đã có dapt, tapt, assembly
 
-[Model folder](https://drive.google.com/file/d/1lrfN5c5rmJzP0ou4JCOVPpbOZ0grS4F8/view?usp=drive_link)
+- python: https://www.kaggle.com/code/thnhtvng/final
 
-[Demo YT 1 line](https://youtu.be/4-AwYVKcXZ8)
+- assembly: lấy từ pretrain, checkpoint để làm tiếp - https://www.kaggle.com/code/vuongdat67/assemblyc
 
-[Demo YT multi line](https://youtu.be/lRZLO8oVCbA)
+- [Model folder](https://drive.google.com/file/d/1lrfN5c5rmJzP0ou4JCOVPpbOZ0grS4F8/view?usp=drive_link)
+
+- [Demo YT 1 line](https://youtu.be/4-AwYVKcXZ8)
+
+- [Demo YT multi line](https://youtu.be/lRZLO8oVCbA)
 
 
 # Cli 
 
 ## Server
 
+```bash
 python asm_cli.py --server
+```
 
 ## Client pipe qua daemon:
+
+```bash
 python asm_cli.py --client --source "add 0x10..." --similarity "add var0..." --var var0=0x10 --var var1=esi | python asmd.py
+```
 
 ## Chạy trực tiếp (không daemon):
+
+```bash
 python asm_cli.py --source "add 0x10 to the current byte in esi" --similarity "add var0 to current byte in var1" --var var0=0x10 --var var1=esi --json
+```
 
-python asmd.py
+```bash
+python asmd.py 
+
 {"source":"add 0x10 to the current byte in esi","similarity":"add var0 to current byte in var1","var_map":{"var0":"0x10","var1":"esi"}}
+```
 
-
+```bash
 $env:TRANSFORMERS_VERBOSITY="error"
+```
