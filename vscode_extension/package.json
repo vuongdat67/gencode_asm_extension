@@ -2,7 +2,7 @@
   "name": "asm-suggest",
   "displayName": "ASM Suggest",
   "description": "Insert ASM suggestions from local daemon",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "engines": {
     "vscode": "^1.107.0"
   },
@@ -14,7 +14,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:asm-suggest.insertAsm"
+    "onCommand:asm-suggest.insertAsm",
+    "onCommand:asm-suggest.switchEndpoint"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -22,8 +23,33 @@
       {
         "command": "asm-suggest.insertAsm",
         "title": "ASM Suggest: Insert from Daemon"
+      },
+      {
+        "command": "asm-suggest.switchEndpoint",
+        "title": "ASM Suggest: Switch Endpoint"
       }
     ],
+    "configuration": {
+      "title": "ASM Suggest",
+      "properties": {
+        "asmSuggest.inferUrl": {
+          "type": "string",
+          "default": "http://127.0.0.1:9138/infer",
+          "description": "HTTP endpoint for inference (e.g., ASM daemon at 9137 or Python daemon at 9138)."
+        },
+        "asmSuggest.endpoints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "http://127.0.0.1:9138/infer",
+            "http://127.0.0.1:9137/infer"
+          ],
+          "description": "List of daemon endpoints to quickly switch (Python/ASM)."
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "asm-suggest.insertAsm",

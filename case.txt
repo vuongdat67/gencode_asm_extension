@@ -63,6 +63,18 @@ C:\Users\vuong\Documents\upload\dev1\model.py:148: UserWarning: The torch.cuda.*
 {'acc': np.float64(0.5973333333333334), 'rouge-w': np.float64(0.767241355726272)}
 Đã ghi kết quả vào model/python/test_results_ne
 
+(.venv) PS C:\Users\vuong\Documents\upload\dev1> python .\test.py
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/python/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+C:\Users\vuong\Documents\upload\dev1\model.py:148: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\tensor\python_tensor.cpp:80.)
+  zero = torch.cuda.LongTensor(1).fill_(0)
+Best: var1 += x
+Others: ['var1 += var0', ' total += var0', 'count += x', 'count += var0']
+(.venv) PS C:\Users\vuong\Documents\upload\dev1>
+
 
 # assembly 2
 PS C:\Users\vuong\Documents\upload\dev1> C:\Users\vuong\Documents\upload\dev1\.venv\Scripts\Activate.ps1
@@ -143,3 +155,136 @@ preds = m.predict(source, similarity)
 
 print("Best:", preds[0])
 print("Others:", preds[1:])
+
+
+python2
+
+(.venv) PS C:\Users\vuong\Documents\upload\dev1> python .\test.py
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/python2/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+Test file: code-trained/exploitgen-data/python/test.csv
+
+*** Sample test ***
+idx: 0
+source: initialize bad_chars to the string '\x0a\x00\x0d'...
+similarity: initialize var0 to string var2...
+target: [TEST MODE]
+source_ids length: 64
+target_ids length: 64
+  0%|                                                                                                              | 0/24 [00:00<?, ?it/s]C:\Users\vuong\Documents\upload\dev1\model.py:148: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\tensor\python_tensor.cpp:80.)
+  zero = torch.cuda.LongTensor(1).fill_(0)
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 24/24 [03:10<00:00,  7.92s/it]
+{'acc': np.float64(0.30133333333333334), 'rouge-w': np.float64(0.5800675992309903)}
+Đã ghi kết quả vào model/python2/test_results_new
+
+(.venv) PS C:\Users\vuong\Documents\upload\dev1> python .\test.py
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/python2/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+C:\Users\vuong\Documents\upload\dev1\model.py:148: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\tensor\python_tensor.cpp:80.)
+  zero = torch.cuda.LongTensor(1).fill_(0)
+Best: result += x
+Others: ['count += x', 'n += x', 'arg += x', 'add += x']
+
+====================FINAL =================================
+(.venv) PS C:\Users\vuong\Documents\upload\dev1> python .\eval_checkpoints.py                        
+================================================================================
+================================================================================
+Eval assembly1 | lang=assembly | ckpt=model/assembly/checkpoint-best-rouge/pytorch_model.bin
+Eval assembly1 | lang=assembly | ckpt=model/assembly/checkpoint-best-rouge/pytorch_model.bin
+test_csv=code-trained/exploitgen-data/assembly/test.csv
+test_csv=code-trained/exploitgen-data/assembly/test.csv
+out_dir=model\assembly\test_results_assembly1
+out_dir=model\assembly\test_results_assembly1
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/assembly/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+Test file: code-trained/exploitgen-data/assembly/test.csv
+
+*** Sample test ***
+idx: 0
+source: _start label...
+similarity: var0 label...
+target: [TEST MODE]
+source_ids length: 64
+target_ids length: 64
+  0%|                                                                        | 0/20 [00:00<?, ?it/s]C:\Users\vuong\Documents\upload\dev1\model.py:148: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\torch\csrc\tensor\python_tensor.cpp:80.)
+  zero = torch.cuda.LongTensor(1).fill_(0)
+100%|███████████████████████████████████████████████████████████████| 20/20 [01:26<00:00,  4.33s/it] 
+{'acc': np.float64(0.5770491803278689), 'rouge-w': np.float64(0.7028212359598778)}
+Metrics: None
+Saved to model\assembly\test_results_assembly1
+================================================================================
+Eval assembly2 | lang=assembly | ckpt=model/assembly2/checkpoint-best-rouge/pytorch_model.bin
+test_csv=code-trained/exploitgen-data/assembly/test.csv
+out_dir=model\assembly\test_results_assembly2
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/assembly2/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+Test file: code-trained/exploitgen-data/assembly/test.csv
+
+*** Sample test ***
+idx: 0
+source: _start label...
+similarity: var0 label...
+target: [TEST MODE]
+source_ids length: 64
+target_ids length: 64
+100%|███████████████████████████████████████████████████████████████| 20/20 [01:59<00:00,  5.97s/it]      
+{'acc': np.float64(0.49508196721311476), 'rouge-w': np.float64(0.6446646468125354)}
+Metrics: None
+Saved to model\assembly\test_results_assembly2
+================================================================================
+Eval python1 | lang=python | ckpt=model/python/checkpoint-best-rouge/pytorch_model.bin
+test_csv=code-trained/exploitgen-data/python/test.csv
+out_dir=model\python\test_results_python1
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/python/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+Test file: code-trained/exploitgen-data/python/test.csv
+
+*** Sample test ***
+idx: 0
+source: initialize bad_chars to the string '\x0a\x00\x0d'...
+similarity: initialize var0 to string var2...
+target: [TEST MODE]
+source_ids length: 64
+target_ids length: 64
+100%|████████████████████████████████████████████████████████████████████| 24/24 [03:09<00:00,  7.90s/it]
+{'acc': np.float64(0.5973333333333334), 'rouge-w': np.float64(0.767241355726272)}
+Metrics: None
+Saved to model\python\test_results_python1
+================================================================================
+Eval python2 | lang=python | ckpt=model/python2/checkpoint-best-rouge/pytorch_model.bin
+test_csv=code-trained/exploitgen-data/python/test.csv
+out_dir=model\python\test_results_python2
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Some weights of RobertaModel were not initialized from the model checkpoint at fg-codebert and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+从...model/python2/checkpoint-best-rouge/pytorch_model.bin...重新加载参数
+Test file: code-trained/exploitgen-data/python/test.csv
+
+*** Sample test ***
+idx: 0
+source: initialize bad_chars to the string '\x0a\x00\x0d'...
+similarity: initialize var0 to string var2...
+target: [TEST MODE]
+source_ids length: 64
+target_ids length: 64
+100%|████████████████████████████████████████████████████████████████████| 24/24 [03:14<00:00,  8.08s/it]
+{'acc': np.float64(0.30133333333333334), 'rouge-w': np.float64(0.5800675992309903)}
+Metrics: None
+Saved to model\python\test_results_python2
+(.venv) PS C:\Users\vuong\Documents\upload\dev1>

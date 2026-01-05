@@ -29,7 +29,7 @@ echo '{"source":"add 0x10 to the current byte in esi","similarity":"add var0 to 
 ```
 Hoặc chạy daemon rồi dán JSON từng dòng, Enter để nhận kết quả; Ctrl+Z rồi Enter để thoát.
 
-### HTTP daemon (dễ gọi từ VS Code extension)
+### HTTP daemon (ASM) – dùng cho VS Code extension
 Chạy server HTTP (load model 1 lần):
 ```
 python asmd_http.py
@@ -50,6 +50,22 @@ Ví dụ PowerShell:
 $body = '{"source":"add 0x10 to the current byte in esi","similarity":"add var0 to current byte in var1","var_map":{"var0":"0x10","var1":"esi"}}'
 curl -Method POST -Uri http://127.0.0.1:9137/infer -Body $body -ContentType 'application/json'
 ```
+
+### HTTP daemon (Python)
+Chạy server HTTP cho model Python:
+```
+python pyd_http.py
+```
+Endpoint: `POST http://127.0.0.1:9138/infer`
+Body JSON (không dùng var_map nhưng giữ định dạng giống):
+```json
+{
+	"source": "sort list ascending",
+	"similarity": "sort var0 ascending",
+	"var_map": {}
+}
+```
+Response: `{ "best": "...", "others": [...], ... }`
 
 ### Chế độ server/client trong asm_cli
 - Server tương đương daemon: `python asm_cli.py --server` (nhận JSON qua stdin, trả JSON).
@@ -80,10 +96,13 @@ python asm_cli.py --client --source "..." --similarity "..." --var var0=0x10 --v
 - Thêm asmd_http.py (HTTP daemon) và VS Code extension asm-suggest: chọn text → Ctrl+Alt+A → gửi POST /infer → chèn best, hoặc chọn từ QuickPick.
 
 ### VS Code extension (asm-suggest)
-1) Chạy HTTP daemon trước: `python asmd_http.py` (mặc định http://127.0.0.1:9137/infer).
-2) Cài vsix: `code --install-extension asm-suggest-0.0.1.vsix` (đã làm).
+1) Chạy HTTP daemon trước:
+	- ASM: `python asmd_http.py` (http://127.0.0.1:9137/infer)
+	- Python: `python pyd_http.py` (http://127.0.0.1:9138/infer)
+2) Cài vsix: `code --install-extension asm-suggest-0.0.4.vsix` (hoặc phiên bản mới nhất).
 3) Trong VS Code: chọn đoạn comment/nội dung nguồn → nhấn `Ctrl+Alt+Y` (command: ASM Suggest: Insert from Daemon).
 	- Extension gửi JSON `{source: <selection>, similarity: <selection>, var_map: {}}` tới daemon.
 	- QuickPick hiện Others (nếu có); chọn để chèn, mặc định chèn Best.
-	- Nếu chọn nhiều dòng: mỗi dòng non-empty được gửi riêng, chèn lần lượt các best suggestion (1 dòng source → 1 dòng ASM).
-4) Muốn giảm log transformers: `$env:TRANSFORMERS_VERBOSITY="error"` trước khi chạy daemon.
+	- Nếu chọn nhiều dòng: mỗi dòng non-empty được gửi riêng, chèn lần lượt các best suggestion (1 dòng source → 1 dòng ASM/Python code).
+4) Đổi endpoint (ASM/Python) trong Settings: `asmSuggest.inferUrl` (default 9137). Đặt thành `http://127.0.0.1:9138/infer` để gọi daemon Python.
+5) Muốn giảm log transformers: `$env:TRANSFORMERS_VERBOSITY="error"` trước khi chạy daemon.
