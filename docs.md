@@ -106,3 +106,39 @@ python asm_cli.py --client --source "..." --similarity "..." --var var0=0x10 --v
 	- Nếu chọn nhiều dòng: mỗi dòng non-empty được gửi riêng, chèn lần lượt các best suggestion (1 dòng source → 1 dòng ASM/Python code).
 4) Đổi endpoint (ASM/Python) trong Settings: `asmSuggest.inferUrl` (default 9137). Đặt thành `http://127.0.0.1:9138/infer` để gọi daemon Python.
 5) Muốn giảm log transformers: `$env:TRANSFORMERS_VERBOSITY="error"` trước khi chạy daemon.
+
+## Infer API examples
+
+### curl (Windows)
+```powershell
+curl.exe -X POST http://127.0.0.1:9138/infer `
+  -H "Content-Type: application/json" `
+  -d '{"source":"convert x to hex","similarity":"convert var0 to hex","var_map":{}}'
+```
+
+### PowerShell
+```powershell
+$body = '{"source":"convert x to hex","similarity":"convert var0 to hex","var_map":{}}'
+
+Invoke-RestMethod `
+  -Method POST `
+  -Uri http://127.0.0.1:9138/infer `
+  -ContentType "application/json" `
+  -Body $body
+```
+
+### Python (`req.py`)
+```python
+import requests
+
+r = requests.post(
+    "http://127.0.0.1:9138/infer",
+    json={
+        "source": "convert x to hex",
+        "similarity": "convert var0 to hex",
+        "var_map": {}
+    }
+)
+
+print(r.json())
+```
