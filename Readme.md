@@ -91,7 +91,7 @@ code --install-extension asm-suggest-0.0.2.vsix
 
 - assembly: lấy từ pretrain, checkpoint để làm tiếp - https://www.kaggle.com/code/vuongdat67/assemblyc
 
-- [Model folder](https://drive.google.com/file/d/1lrfN5c5rmJzP0ou4JCOVPpbOZ0grS4F8/view?usp=drive_link)
+- [Model folder](https://drive.google.com/file/d/1KUYjf7CJHov_03QcQ7OZX5hqmQ-BBNtS/view?usp=sharing)
 
 - [Demo YT 1 line](https://youtu.be/4-AwYVKcXZ8)
 
