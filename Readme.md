@@ -2,11 +2,11 @@
 
 # Paper code (Chinese)
 
-- pretrain or full: https://www.kaggle.com/code/datvutyn/notebook2fd53223e8 (nhưng timeout 12h) - đã có dapt, tapt, assembly
+- pretrain or full: [train](https://www.kaggle.com/code/datvutyn/notebook2fd53223e8) (nhưng timeout 12h) - đã có dapt, tapt, assembly
 
-- python: https://www.kaggle.com/code/thnhtvng/final
+- [python](https://www.kaggle.com/code/thnhtvng/final)
 
-- assembly: lấy từ pretrain, checkpoint để làm tiếp - https://www.kaggle.com/code/vuongdat67/assemblyc
+- assembly: lấy từ pretrain, checkpoint để làm tiếp - [assembly](https://www.kaggle.com/code/vuongdat67/assemblyc)
 
 - [Model folder](https://drive.google.com/file/d/1KUYjf7CJHov_03QcQ7OZX5hqmQ-BBNtS/view?usp=sharing)
 
