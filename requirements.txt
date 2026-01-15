@@ -1,0 +1,13 @@
+torch==2.1.0
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+torch==2.1.0
+transformers==4.35.0
+pytest==7.4.3
+httpx==0.25.2
+numpy==1.26.4
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+pip install transformers pandas numpy tqdm code-tokenize spacy words2num nltk astor rouge-score
+pip install rouge-score py-rouge
+python -m spacy download en_core_web_sm
