@@ -1,3 +1,35 @@
+## Resources model
+
+# Paper code (Chinese)
+
+- pretrain or full: https://www.kaggle.com/code/datvutyn/notebook2fd53223e8 (nhưng timeout 12h) - đã có dapt, tapt, assembly
+
+- python: https://www.kaggle.com/code/thnhtvng/final
+
+- assembly: lấy từ pretrain, checkpoint để làm tiếp - https://www.kaggle.com/code/vuongdat67/assemblyc
+
+- [Model folder](https://drive.google.com/file/d/1KUYjf7CJHov_03QcQ7OZX5hqmQ-BBNtS/view?usp=sharing)
+
+- [Demo YT 1 line](https://youtu.be/4-AwYVKcXZ8)
+
+- [Demo YT multi line](https://youtu.be/lRZLO8oVCbA)
+
+# My improvement (English)
+
+- [dapt](https://www.kaggle.com/datasets/thnhtvng/daptmodel/)
+  
+- [tapt](https://www.kaggle.com/code/thnhtvng/pretrained-model/)
+
+- full pretrain_mode: [model fg-codebert pretrain](https://www.kaggle.com/datasets/vuongdat67/pretrain-model/) and [code](https://www.kaggle.com/code/vuongdat67/pretrained-model)
+  
+- [python](https://www.kaggle.com/code/datvutyn/python)
+  
+- [assembly](https://www.kaggle.com/code/datvutyn/assembly)
+  
+- [code](https://www.kaggle.com/datasets/datvutyn/codetrain/)
+  
+- [datasets](https://www.kaggle.com/datasets/datvutyn/exploitgen-data/)
+
 # Usage Guide
 
 ## 1. Backend Setup (Python)
@@ -81,21 +113,6 @@ npx vsce package
 ```bash
 code --install-extension asm-suggest-0.0.2.vsix
 ```
-
-
-## Resources model
-
-- pretrain or full: https://www.kaggle.com/code/datvutyn/notebook2fd53223e8 (nhưng timeout 12h) - đã có dapt, tapt, assembly
-
-- python: https://www.kaggle.com/code/thnhtvng/final
-
-- assembly: lấy từ pretrain, checkpoint để làm tiếp - https://www.kaggle.com/code/vuongdat67/assemblyc
-
-- [Model folder](https://drive.google.com/file/d/1KUYjf7CJHov_03QcQ7OZX5hqmQ-BBNtS/view?usp=sharing)
-
-- [Demo YT 1 line](https://youtu.be/4-AwYVKcXZ8)
-
-- [Demo YT multi line](https://youtu.be/lRZLO8oVCbA)
 
 
 # Cli 
